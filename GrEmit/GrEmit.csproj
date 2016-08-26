@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{049F27EE-942B-4F5F-BFA8-BD199538E3A8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GrEmit</RootNamespace>
+    <AssemblyName>GrEmit</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\GrEmit.XML</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FieldsExtractor.cs" />
+    <Compile Include="InstructionParameters\CallILInstructionParameter.cs" />
+    <Compile Include="StackMutators\Add_Ovf_UnStackMutator.cs" />
+    <Compile Include="StackMutators\Cgt_UnStackMutator.cs" />
+    <Compile Include="StackMutators\Sub_Ovf_UnStackMutator.cs" />
+    <Compile Include="Utils\ReflectionExtensions.cs" />
+    <Compile Include="StackMutators\Add_UnStackMutator.cs" />
+    <Compile Include="StackMutators\ArglistStackMutator.cs" />
+    <Compile Include="StackMutators\ArithmeticBinOpStackMutator.cs" />
+    <Compile Include="StackMutators\BinOpStackMutator.cs" />
+    <Compile Include="StackMutators\BranchStackMutator.cs" />
+    <Compile Include="StackMutators\BrtrueStackMutator.cs" />
+    <Compile Include="StackMutators\CkfiniteStackMutator.cs" />
+    <Compile Include="StackMutators\ConvertStackMutator.cs" />
+    <Compile Include="StackMutators\ConvI1StackMutator.cs" />
+    <Compile Include="StackMutators\ConvI2StackMutator.cs" />
+    <Compile Include="StackMutators\ConvI8StackMutator.cs" />
+    <Compile Include="StackMutators\ConvIStackMutator.cs" />
+    <Compile Include="StackMutators\ConvR4StackMutator.cs" />
+    <Compile Include="StackMutators\ConvR8StackMutator.cs" />
+    <Compile Include="StackMutators\ConvU1StackMutator.cs" />
+    <Compile Include="StackMutators\ConvU2StackMutator.cs" />
+    <Compile Include="StackMutators\ConvU4StackMutator.cs" />
+    <Compile Include="StackMutators\ConvU8StackMutator.cs" />
+    <Compile Include="StackMutators\ConvUStackMutator.cs" />
+    <Compile Include="StackMutators\CpobjStackMutator.cs" />
+    <Compile Include="StackMutators\InitblkStackMutator.cs" />
+    <Compile Include="StackMutators\IntegerOpStackMutator.cs" />
+    <Compile Include="StackMutators\JmpStackMutator.cs" />
+    <Compile Include="StackMutators\NotStackMutator.cs" />
+    <Compile Include="StackMutators\NumericOpStackMutator.cs" />
+    <Compile Include="StackMutators\ShiftOpStackMutator.cs" />
+    <Compile Include="StackMutators\Sub_UnStackMutator.cs" />
+    <Compile Include="Utils\TypeExtensions.cs" />
+    <Compile Include="Utils\EmitHelpers.cs" />
+    <Compile Include="Utils\HackHelpers.cs" />
+    <Compile Include="InstructionComments\EmptyILInstructionComment.cs" />
+    <Compile Include="InstructionComments\InaccessibleCodeILInstructionComment.cs" />
+    <Compile Include="InstructionParameters\ConstructorILInstructionParameter.cs" />
+    <Compile Include="InstructionParameters\FieldILInstructionParameter.cs" />
+    <Compile Include="Utils\Formatter.cs" />
+    <Compile Include="GroboIL.cs" />
+    <Compile Include="ILCode.cs" />
+    <Compile Include="ILInstructionComment.cs" />
+    <Compile Include="ILInstructionParameter.cs" />
+    <Compile Include="InstructionParameters\LabelILInstructionParameter.cs" />
+    <Compile Include="InstructionParameters\LabelsILInstructionParameter.cs" />
+    <Compile Include="InstructionParameters\LocalILInstructionParameter.cs" />
+    <Compile Include="InstructionParameters\MethodByAddressILInstructionParameter.cs" />
+    <Compile Include="InstructionParameters\MethodILInstructionParameter.cs" />
+    <Compile Include="InstructionParameters\PrimitiveILInstructionParameter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="InstructionComments\StackILInstructionComment.cs" />
+    <Compile Include="InstructionParameters\StringILInstructionParameter.cs" />
+    <Compile Include="InstructionParameters\TypeILInstructionParameter.cs" />
+    <Compile Include="StackMutator.cs" />
+    <Compile Include="StackMutatorCollection.cs" />
+    <Compile Include="StackMutators\BranchComparisonStackMutator.cs" />
+    <Compile Include="StackMutators\BoxStackMutator.cs" />
+    <Compile Include="StackMutators\BrfalseStackMutator.cs" />
+    <Compile Include="StackMutators\BrStackMutator.cs" />
+    <Compile Include="StackMutators\BranchEqualityStackMutator.cs" />
+    <Compile Include="StackMutators\CalliStackMutator.cs" />
+    <Compile Include="StackMutators\CallStackMutator.cs" />
+    <Compile Include="StackMutators\CastclassStackMutator.cs" />
+    <Compile Include="StackMutators\ArithmeticEqualityStackMutator.cs" />
+    <Compile Include="StackMutators\ArithmeticComparisonStackMutator.cs" />
+    <Compile Include="StackMutators\ConvI4StackMutator.cs" />
+    <Compile Include="StackMutators\CpblkStackMutator.cs" />
+    <Compile Include="StackMutators\DupStackMutator.cs" />
+    <Compile Include="StackMutators\IsinstStackMutator.cs" />
+    <Compile Include="StackMutators\LdargaStackMutator.cs" />
+    <Compile Include="StackMutators\Ldarga_SStackMutator.cs" />
+    <Compile Include="StackMutators\LdargStackMutator.cs" />
+    <Compile Include="StackMutators\Ldarg_0StackMutator.cs" />
+    <Compile Include="StackMutators\InitobjStackMutator.cs" />
+    <Compile Include="StackMutators\Ldarg_1StackMutator.cs" />
+    <Compile Include="StackMutators\Ldarg_2StackMutator.cs" />
+    <Compile Include="StackMutators\Ldarg_3StackMutator.cs" />
+    <Compile Include="StackMutators\Ldarg_SStackMutator.cs" />
+    <Compile Include="StackMutators\Ldc_I4StackMutator.cs" />
+    <Compile Include="StackMutators\Ldc_I8StackMutator.cs" />
+    <Compile Include="StackMutators\Ldc_R4StackMutator.cs" />
+    <Compile Include="StackMutators\Ldc_R8StackMutator.cs" />
+    <Compile Include="StackMutators\LdelemaStackMutator.cs" />
+    <Compile Include="StackMutators\LdelemStackMutator.cs" />
+    <Compile Include="StackMutators\LdfldaStackMutator.cs" />
+    <Compile Include="StackMutators\LdfldStackMutator.cs" />
+    <Compile Include="StackMutators\LdftnStackMutator.cs" />
+    <Compile Include="StackMutators\LdindStackMutator.cs" />
+    <Compile Include="StackMutators\LdlenStackMutator.cs" />
+    <Compile Include="StackMutators\LdlocaStackMutator.cs" />
+    <Compile Include="StackMutators\LdlocStackMutator.cs" />
+    <Compile Include="StackMutators\LdnullStackMutator.cs" />
+    <Compile Include="StackMutators\LdstrStackMutator.cs" />
+    <Compile Include="StackMutators\LdtokenStackMutator.cs" />
+    <Compile Include="StackMutators\NegStackMutator.cs" />
+    <Compile Include="StackMutators\NewarrStackMutator.cs" />
+    <Compile Include="StackMutators\NewobjStackMutator.cs" />
+    <Compile Include="StackMutators\NopStackMutator.cs" />
+    <Compile Include="StackMutators\PopStackMutator.cs" />
+    <Compile Include="StackMutators\RetStackMutator.cs" />
+    <Compile Include="StackMutators\MarkLabelStackMutator.cs" />
+    <Compile Include="StackMutators\StargStackMutator.cs" />
+    <Compile Include="StackMutators\Starg_SStackMutator.cs" />
+    <Compile Include="StackMutators\StelemStackMutator.cs" />
+    <Compile Include="StackMutators\StfldStackMutator.cs" />
+    <Compile Include="StackMutators\StindStackMutator.cs" />
+    <Compile Include="StackMutators\StlocStackMutator.cs" />
+    <Compile Include="StackMutators\SwitchStackMutator.cs" />
+    <Compile Include="StackMutators\ThrowStackMutator.cs" />
+    <Compile Include="StackMutators\Unbox_AnyStackMutator.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -9,6 +9,12 @@ namespace InterfaceInterceptionProxyTest
 
     public class TestInterceptorAttribute : InterceptorAttribute
     {
+        public TestInterceptorAttribute() : base(0)
+        {
+
+        }
+
+        
         public override Type InterceptionHandlerType
         {
             get

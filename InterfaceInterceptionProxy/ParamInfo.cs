@@ -2,8 +2,18 @@
 
 namespace InterfaceInterceptionProxy
 {
+    /// <summary>
+    /// Provide information about parameter passed to intercepted method
+    /// </summary>
     public class ParamInfo
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="type"></param>
+        /// <param name="isByRef"></param>
+        /// <param name="isOut"></param>
         public ParamInfo(string name, Type type, bool isByRef, bool isOut)
         {
             Name = name;
@@ -34,6 +44,9 @@ namespace InterfaceInterceptionProxy
         /// </summary>
         public Type Type { get; private set; }
 
+        /// <summary>
+        /// Gets or sets value of the parameter passed to intercepted method
+        /// </summary>
         public object Value { get; set; }
     }
 }

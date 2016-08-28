@@ -2,6 +2,9 @@
 
 namespace InterfaceInterceptionProxy
 {
+    /// <summary>
+    /// Base class of attribute used to mark methods that should be intercepted
+    /// </summary>
     [AttributeUsage(System.AttributeTargets.Method, AllowMultiple = true, Inherited = true)]
     public abstract class InterceptorAttribute : Attribute
     {
@@ -10,13 +13,13 @@ namespace InterfaceInterceptionProxy
         /// invocation chain. Smaller order - closer to target method in invocation chain.
         /// </summary>
         /// <param name="order">order in invocation chain</param>
-        protected InterceptorAttribute(int order = 0)
+        protected InterceptorAttribute(int order)
         {
             Order = order;
         }
 
         /// <summary>
-        /// <see cref="IInterceptionHandler"/> derived type
+        /// <see cref="IInterceptionHandler"/> derived type, used as interception handler
         /// </summary>
         public abstract Type InterceptionHandlerType { get; }
 

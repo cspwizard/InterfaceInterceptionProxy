@@ -12,6 +12,9 @@ using static GrEmit.GroboIL;
 
 namespace InterfaceInterceptionProxy
 {
+    /// <summary>
+    /// Interface interceptor proxy type builder
+    /// </summary>
     public static class InterfaceBuilderStrategy
     {
         static InterfaceBuilderStrategy()
@@ -25,8 +28,18 @@ namespace InterfaceInterceptionProxy
 
         private static ModuleBuilder ModuleBuilder { get; set; }
 
-        private static ISymbolDocumentWriter SymbolDocumentWriter { get; set; }
-
+        /// <summary>
+        /// Builds Proxy Type that implement an interface, and proxy calls to defined with attribute methods via
+        /// defined intercepting handlers
+        /// </summary>
+        /// <param name="interface">Type to wrap</param>
+        /// <param name="implementation">
+        /// Type providing interface implementation, intercepting attributes are read from this type
+        /// </param>
+        /// <returns>
+        /// Proxy type with constructor accepting object implementing @interface and intercepting
+        /// handlers as parameters
+        /// </returns>
         public static Type CreateInterfaceProxy(Type @interface, Type implementation)
         {
             Contract.Ensures(Contract.Result<Type>() != null);
@@ -57,8 +70,7 @@ namespace InterfaceInterceptionProxy
                 var method = methods[i];
                 var interfaceMethod = method.InterfaceMethod;
                 var typeMethod = method.TargetMethod;
-                var interceptorAttributes = new List<InterceptorAttribute>();
-
+                
                 var attributeTypes = Attribute.GetCustomAttributes(typeMethod, typeof(InterceptorAttribute), true)
                             .OrderBy(a => ((InterceptorAttribute)a).Order).Select(a => ((InterceptorAttribute)a).InterceptionHandlerType).ToArray();
 
@@ -166,13 +178,7 @@ namespace InterfaceInterceptionProxy
             SetupGenericMethodArguments(overridedMethod, method);
 
             using (var il = new GroboIL(method))
-            {
-                Local retLocal = null;
-                if (overridedMethod.ReturnType != typeof(void))
-                {
-                    retLocal = il.DeclareLocal(overridedMethod.ReturnType);
-                }
-
+            {                
                 if (overridedMethod.ReturnType != typeof(void))
                 {
                     interceptorMethod = genericInterceptionAction.MakeGenericMethod(overridedMethod.ReturnType);
@@ -271,12 +277,6 @@ namespace InterfaceInterceptionProxy
 
             using (var il = new GroboIL(methodBuilder))
             {
-                Local retVal = null;
-                if (overridedMethod.ReturnType != typeof(void))
-                {
-                    retVal = il.DeclareLocal(overridedMethod.ReturnType);
-                }
-
                 var paramInfoType = typeof(ParamInfo);
                 var paramsInfoType = typeof(ParamInfo[]);
                 var paramsInfo = il.DeclareLocal(paramsInfoType);

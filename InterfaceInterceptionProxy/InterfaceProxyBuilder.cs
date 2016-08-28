@@ -12,7 +12,7 @@ namespace InterfaceInterceptionProxy
         private static readonly Dictionary<Tuple<Type, Type>, Type> Types = new Dictionary<Tuple<Type, Type>, Type>();
 
         /// <summary>
-        /// Returns Proxy Type that implement an interface, and proxy all calls to methods via
+        /// Builds Proxy Type that implement an interface, and proxy calls to defined with attribute methods via
         /// defined intercepting handlers
         /// </summary>
         /// <typeparam name="I">Type to wrap</typeparam>
@@ -23,6 +23,7 @@ namespace InterfaceInterceptionProxy
         /// Proxy type with constructor accepting object implementing @interface and intercepting
         /// handlers as parameters
         /// </returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1004:GenericMethodsShouldProvideTypeParameter", Justification = "Not applicable in this case")]
         public static Type BuildType<I, T>() where T : I where I : class
         {
             Type type = typeof(T);
@@ -31,7 +32,7 @@ namespace InterfaceInterceptionProxy
         }
 
         /// <summary>
-        /// Returns Proxy Type that implement an interface, and proxy all calls to methods via
+        /// Builds Proxy Type that implement an interface, and proxy calls to defined with attribute methods via
         /// defined intercepting handlers
         /// </summary>
         /// <param name="interface">Type to wrap</param>

@@ -24,11 +24,11 @@ namespace InterfaceInterceptionProxy
         /// handlers as parameters
         /// </returns>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1004:GenericMethodsShouldProvideTypeParameter", Justification = "Not applicable in this case")]
-        public static Type BuildType<I, T>() where T : I where I : class
+        public static Type BuildProxyType<I, T>() where T : I where I : class
         {
             Type type = typeof(T);
-            Type @interface = typeof(T);
-            return BuildType(@interface, type);
+            Type @interface = typeof(I);
+            return BuildProxyType(@interface, type);
         }
 
         /// <summary>
@@ -43,7 +43,7 @@ namespace InterfaceInterceptionProxy
         /// Proxy type with constructor accepting object implementing @interface and intercepting
         /// handlers as parameters
         /// </returns>
-        public static Type BuildType(Type @interface, Type implementation)
+        public static Type BuildProxyType(Type @interface, Type implementation)
         {
             if (!@interface.IsInterface)
             {

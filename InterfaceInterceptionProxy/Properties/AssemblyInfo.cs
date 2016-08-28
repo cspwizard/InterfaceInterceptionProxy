@@ -5,9 +5,9 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following set of attributes.
 // Change these attribute values to modify the information associated with an assembly.
 [assembly: AssemblyTitle("InterfaceInterceptionProxy")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Interface Interceptor Proxy Type generator that implement an interface, and proxy calls to defined with attribute methods via defined intercepting handlers")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Konstantin Pozdniakov")]
 [assembly: AssemblyProduct("InterfaceInterceptionProxy")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]

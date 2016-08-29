@@ -5,7 +5,7 @@ namespace InterfaceInterceptionProxy
     /// <summary>
     /// Delegate used in case of intercepting method with return value
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T">Return value type of intercepted method</typeparam>
     /// <param name="paramsInfo"><see cref="ParamInfo"/>Set of parameters passed to intercepted method</param>
     /// <returns>Value provided by intercepted action</returns>
     public delegate T TDelegate<T>(IEnumerable<ParamInfo> paramsInfo);

@@ -8,12 +8,12 @@ namespace InterfaceInterceptionProxy
     public class ParamInfo
     {
         /// <summary>
-        /// 
+        /// ParamInfo constructor
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="type"></param>
-        /// <param name="isByRef"></param>
-        /// <param name="isOut"></param>
+        /// <param name="name">name of argument</param>
+        /// <param name="type">type of argument</param>
+        /// <param name="isByRef">is argument passed by reference</param>
+        /// <param name="isOut">is argument passed as out</param>
         public ParamInfo(string name, Type type, bool isByRef, bool isOut)
         {
             Name = name;

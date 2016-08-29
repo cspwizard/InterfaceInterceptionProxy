@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.Contracts;
-using System.Diagnostics.SymbolStore;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -29,8 +28,8 @@ namespace InterfaceInterceptionProxy
         private static ModuleBuilder ModuleBuilder { get; set; }
 
         /// <summary>
-        /// Builds Proxy Type that implement an interface, and proxy calls to defined with attribute methods via
-        /// defined intercepting handlers
+        /// Builds Proxy Type that implement an interface, and proxy calls to defined with attribute
+        /// methods via defined intercepting handlers
         /// </summary>
         /// <param name="interface">Type to wrap</param>
         /// <param name="implementation">
@@ -70,7 +69,7 @@ namespace InterfaceInterceptionProxy
                 var method = methods[i];
                 var interfaceMethod = method.InterfaceMethod;
                 var typeMethod = method.TargetMethod;
-                
+
                 var attributeTypes = Attribute.GetCustomAttributes(typeMethod, typeof(InterceptorAttribute), true)
                             .OrderBy(a => ((InterceptorAttribute)a).Order).Select(a => ((InterceptorAttribute)a).InterceptionHandlerType).ToArray();
 
@@ -178,7 +177,7 @@ namespace InterfaceInterceptionProxy
             SetupGenericMethodArguments(overridedMethod, method);
 
             using (var il = new GroboIL(method))
-            {                
+            {
                 if (overridedMethod.ReturnType != typeof(void))
                 {
                     interceptorMethod = genericInterceptionAction.MakeGenericMethod(overridedMethod.ReturnType);

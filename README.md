@@ -5,7 +5,10 @@ InterfaceInterceptionProxy is a library that contains helpers to generate interf
 Using GrEmit project by Igor Chevdar as ILGenerator wrapper, direct usage will be replaced by NuGet package reference as soon as bugs in original code will be fixed :)
 
 ##Build status
-[![Build status](https://ci.appveyor.com/api/projects/status/c56yustqcqrpri4s?svg=true)](https://ci.appveyor.com/project/cspwizard/interfaceinterceptionproxy)
+Branch | Status
+--- | ---
+*master* (latest release) | [![Build status](https://ci.appveyor.com/api/projects/status/c56yustqcqrpri4s/branch/master?svg=true)](https://ci.appveyor.com/project/cspwizard/interfaceinterceptionproxy/branch/master)
+*develop* (development) | [![Build status](https://ci.appveyor.com/api/projects/status/c56yustqcqrpri4s?svg=true)](https://ci.appveyor.com/project/cspwizard/interfaceinterceptionproxy/branch/develop)
 
 
 ##Usage

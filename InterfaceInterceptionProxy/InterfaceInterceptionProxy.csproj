@@ -38,6 +38,10 @@
     <DocumentationFile>bin\Release\InterfaceInterceptionProxy.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="GrEmit, Version=2.1.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\GrEmit.2.1.4\lib\net40\GrEmit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -56,10 +60,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GrEmit\GrEmit.csproj">
-      <Project>{049f27ee-942b-4f5f-bfa8-bd199538e3a8}</Project>
-      <Name>GrEmit</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

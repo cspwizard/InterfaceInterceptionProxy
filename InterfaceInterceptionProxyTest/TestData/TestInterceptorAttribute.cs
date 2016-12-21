@@ -11,16 +11,11 @@ namespace InterfaceInterceptionProxyTest
     {
         public TestInterceptorAttribute() : base(0)
         {
-
         }
 
-        
         public override Type InterceptionHandlerType
         {
-            get
-            {
-                return typeof(IInterceptionHandler);
-            }
+            get { return typeof(IInterceptionHandler); }
         }
     }
 
@@ -32,10 +27,7 @@ namespace InterfaceInterceptionProxyTest
 
         public override Type InterceptionHandlerType
         {
-            get
-            {
-                return typeof(INewInterceptionHandler);
-            }
+            get { return typeof(INewInterceptionHandler); }
         }
     }
 
@@ -47,10 +39,7 @@ namespace InterfaceInterceptionProxyTest
 
         public override Type InterceptionHandlerType
         {
-            get
-            {
-                return typeof(IInterceptionHandler);
-            }
+            get { return typeof(IInterceptionHandler); }
         }
     }
 }

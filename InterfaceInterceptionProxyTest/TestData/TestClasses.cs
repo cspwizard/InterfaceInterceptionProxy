@@ -53,7 +53,6 @@ namespace InterfaceInterceptionProxyTest
         [TestInterceptor]
         public void Sum(int a, int b)
         {
-
         }
     }
 
@@ -61,7 +60,6 @@ namespace InterfaceInterceptionProxyTest
     {
         public void Sum(int a, int b)
         {
-
         }
     }
 

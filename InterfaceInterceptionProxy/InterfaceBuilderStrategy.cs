@@ -51,8 +51,8 @@ namespace InterfaceInterceptionProxy
             {
                 throw new ArgumentException($"{nameof(@interface)} ({@interface.FullName}) is not assignable from {nameof(implementation)} ({implementation.FullName})");
             }
-
-            var typeBuilder = ModuleBuilder.DefineType($"InterceptorProxy_{@interface.Name}_{Guid.NewGuid().ToString("N")}", TypeAttributes.Class | TypeAttributes.Public);
+            var typeName = $"{@interface.Assembly.GetName().Name}.v{@interface.Assembly.GetName().Version}.{@interface.FullName}";
+            var typeBuilder = ModuleBuilder.DefineType($"InterceptorProxy_{typeName}_{Guid.NewGuid().ToString("N")}", TypeAttributes.Class | TypeAttributes.Public);
             typeBuilder.AddInterfaceImplementation(SetupGenericClassArguments(@interface, typeBuilder));
 
             var methods = new List<MethodPair>();
@@ -61,7 +61,7 @@ namespace InterfaceInterceptionProxy
             var methodInterceptors = new Dictionary<MethodInfo, Type[]>();
             var interceptorFields = new Dictionary<Type, FieldInfo>();
 
-            var methodsCount = methods.Count();
+            var methodsCount = methods.Count;
             var attributesHashSet = new HashSet<Type>();
 
             for (var i = 0; i < methodsCount; i++)

@@ -83,7 +83,7 @@ namespace InterfaceInterceptionProxyTest
             handler.InterceptingAction<int>(Arg.Any<TDelegate<int>>(), Arg.Any<ParamInfo[]>())
                 .Returns(x =>
                 {
-                    var @params = ((ParamInfo[])x[1]);
+                    var @params = (ParamInfo[])x[1];
                     Assert.IsFalse(@params[0].IsByRef);
                     Assert.IsFalse(@params[1].IsByRef);
                     Assert.IsFalse(@params[0].IsOut);

@@ -6,7 +6,9 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
+
 using GrEmit;
+
 using static GrEmit.GroboIL;
 
 namespace InterfaceInterceptionProxy
@@ -18,11 +20,10 @@ namespace InterfaceInterceptionProxy
     {
         static InterfaceBuilderStrategy()
         {
-            var assemblyBuilder = AppDomain.CurrentDomain.DefineDynamicAssembly(new AssemblyName("InterfaceInterceptionBuilderDynamicTypes"),
+            var assemblyBuilder = AssemblyBuilder.DefineDynamicAssembly(new AssemblyName("InterfaceInterceptionBuilderDynamicTypes"),
                     AssemblyBuilderAccess.RunAndCollect,
-                    Enumerable.Empty<CustomAttributeBuilder>(),
-                    System.Security.SecurityContextSource.CurrentAppDomain);
-            ModuleBuilder = assemblyBuilder.DefineDynamicModule("InterfaceInterceptionBuilderModule", "InterfaceInterceptionBuilder.dll", true);
+                    Enumerable.Empty<CustomAttributeBuilder>());
+            ModuleBuilder = assemblyBuilder.DefineDynamicModule("InterfaceInterceptionBuilderModule");
         }
 
         private static ModuleBuilder ModuleBuilder { get; set; }
@@ -142,7 +143,7 @@ namespace InterfaceInterceptionProxy
                 DefineMethodOverride(typeBuilder, interfaceMethod, methodInterceptors, interceptorFields, genericInterceptionAction, voidInterceptionAction, concrete);
             }
 
-            return typeBuilder.CreateType();
+            return typeBuilder.CreateTypeInfo().AsType();
         }
 
         private static void AddMethodPairsToList(List<MethodPair> methodPairs, Type @interface, Type target)

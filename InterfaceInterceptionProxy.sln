@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31410.357
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterfaceInterceptionProxy", "InterfaceInterceptionProxy\InterfaceInterceptionProxy.csproj", "{1C75377E-3FEB-4DDB-AA3C-83F9472B88FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InterfaceInterceptionProxy", "InterfaceInterceptionProxy\InterfaceInterceptionProxy.csproj", "{1C75377E-3FEB-4DDB-AA3C-83F9472B88FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterfaceInterceptionProxyTest", "InterfaceInterceptionProxyTest\InterfaceInterceptionProxyTest.csproj", "{802FF9E3-8C56-46FC-A367-CAA22660AF95}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InterfaceInterceptionProxyTest", "InterfaceInterceptionProxyTest\InterfaceInterceptionProxyTest.csproj", "{802FF9E3-8C56-46FC-A367-CAA22660AF95}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,5 +24,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2DD3279D-1C27-4074-84C8-7474983DD722}
 	EndGlobalSection
 EndGlobal
